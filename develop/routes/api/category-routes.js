@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   // be sure to include its associated Products
   try {
     const categoriesData = Category.findAll({
-      include: [{ model: product}]
+      include: [{ model: Product}]
     });
     res.status(200).json(categoriesData);
   } catch (err) {
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Products
   try {
     const singleCatData = Category.findByPk(req.params.id, {
-      include: [{ model: product }]
+      include: [{ model: Product }]
     });
     if (!singleCatData) {
       res.status(404).json({ message: "No Category was found with that id!" });
