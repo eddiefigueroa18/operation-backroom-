@@ -31,7 +31,7 @@ To use this application, npm i, node.js, express.js and sequelize must first be 
 * Delete a category/product/tag
 
 ## Preview 
-[Demo Walkthrough]()
+[Demo Walkthrough](https://drive.google.com/file/d/1h1eNaUl5VVwDcsqb0lFpEtnKMg6HFSG8/view)
 
 
 ![Screenshot](./develop/assets/Screenshot%202023-01-26%20130903.png)
