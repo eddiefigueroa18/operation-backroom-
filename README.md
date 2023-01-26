@@ -34,7 +34,7 @@ To use this application, npm i, node.js, express.js and sequelize must first be 
 [Demo Walkthrough]()
 
 
-[Screenshot](./develop/assets/Screenshot%202023-01-26%20130903.png)
+![Screenshot](./develop/assets/Screenshot%202023-01-26%20130903.png)
 
 ## Contributing
 There was already some starter code for this project here :https://github.com/coding-boot-camp/fantastic-umbrella
