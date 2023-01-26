@@ -38,7 +38,6 @@ router.get('/:id', async (req, res) => {
 });
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create(req.body)
@@ -51,17 +50,37 @@ router.post('/', (req, res) => {
     });
 });
 
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
-  Tag.update(req.body)
-    .then((tag) => {
-      res.status(200).json(tag);
+// router.put('/:id', (req, res) => {
+//   // update a tag's name by its `id` value
+//   Tag.update(req.body)
+//     .then((tag) => {
+//       res.status(200).json(tag);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(400).json(err);
+//     });
+// });
+
+router.put('/:id', async (req, res) => {
+  //update a tag's name by its 'id' value
+  try {
+    const updateTagData = await Tag.update(req.body, {
+      where: {
+        id: req.params.id
+      },
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
+    if(!updateTagData) {
+      res.status(404).json({ message: "No tag found by that ID!" });
+      return;
+    }
+    res.status(200).json(updateTagData);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
 });
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
